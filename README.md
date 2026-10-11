@@ -10,6 +10,6 @@
 | [d3.html](d3.html) | 10/15（四） | 柳川遊船・太宰府 |
 | [d4.html](d4.html) | 10/16（五） | 北九州：門司港・小倉城・皿倉山 |
 | [d5.html](d5.html) | 10/17（六） | 糸島：芥屋・二見浦夕陽 |
-| [d6.html](d6.html) | 10/18（日） | 南藏院・篠栗九大の森 |
+| [d6.html](d6.html) | 10/18（日） | 南藏院 |
 
 以 GitHub Pages 發佈（Settings → Pages → Deploy from branch → `main` / root）。
