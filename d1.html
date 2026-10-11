@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>D1｜10/13（二）博多・天神 市區購物｜福岡旅遊 2026</title>
+<style>
+:root{--bg:#f7f5f0;--card:#fff;--ink:#1d1d1f;--muted:#6b6b70;--line:#e6e2d8;--accent:#1d3557}
+@media (prefers-color-scheme:dark){:root{--bg:#141416;--card:#1e1e22;--ink:#f1f1f3;--muted:#a0a0a8;--line:#2e2e34;--accent:#9ec5ff}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:16px}
+h1{font-size:1.5rem;margin:8px 0 2px}
+.sub{color:var(--muted);font-size:.92rem;margin:0 0 12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 12px;font-size:.88rem;cursor:pointer;display:flex;align-items:center;gap:6px}
+.chip.off{opacity:.4}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none}
+#map{height:56vh;min-height:340px;border-radius:14px;border:1px solid var(--line)}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:14px 0}
+.box h2{font-size:1.05rem;margin:0 0 8px}
+.route li{margin:4px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--c);border-radius:12px;padding:12px 14px}
+.item h3{font-size:1rem;margin:0 0 2px}
+.meta{font-size:.8rem;color:var(--muted)}
+.item p{font-size:.88rem;margin:6px 0}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{font-size:.82rem;text-decoration:none;color:#fff;background:var(--accent);padding:5px 10px;border-radius:8px;border:0;cursor:pointer}
+@media (prefers-color-scheme:dark){.btn{color:#111}}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.cat-title{display:flex;align-items:center;gap:8px;margin:22px 0 10px;font-size:1.1rem}
+.small{font-size:.85rem;color:var(--muted)}
+ol{padding-left:20px;margin:6px 0}
+.leaflet-popup-content{font-size:13px}
+
+/* === site nav (tabs) + RWD === */
+html{-webkit-text-size-adjust:100%}
+.daytabs{position:sticky;top:0;z-index:1000;background:var(--bg,#faf9f6);border-bottom:1px solid var(--border,var(--line,#d9d7cf));box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.daytabs .dt-in{max-width:1100px;margin:0 auto;display:flex;gap:6px;overflow-x:auto;padding:8px 12px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.daytabs .dt-in::-webkit-scrollbar{display:none}
+.daytabs a{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:64px;padding:5px 12px;border-radius:10px;border:1px solid var(--border,var(--line,#d9d7cf));background:var(--card,#fff);color:var(--text,var(--ink,#2c2c2a));text-decoration:none;font-size:14px;font-weight:700;line-height:1.25}
+.daytabs a small{font-size:11px;font-weight:500;opacity:.7}
+.daytabs a.on{background:#1a73e8;border-color:#1a73e8;color:#fff}
+.daytabs a.on small{opacity:.9}
+.gmap{display:block;width:100%;border:1px solid var(--border,var(--line,#d9d7cf));border-radius:12px}
+.mapbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:8px 0 6px;font-size:13px;color:var(--muted,#6b6a65)}
+.mapbtn{display:inline-block;font-size:13px;font-weight:600;color:#fff!important;background:#1a73e8;border-radius:999px;padding:6px 14px;text-decoration:none;white-space:nowrap}
+.daynav{display:flex;justify-content:space-between;gap:10px;margin:28px 0 8px}
+.daynav a{flex:1;display:block;padding:12px 14px;border:1px solid var(--border,var(--line,#d9d7cf));border-radius:12px;background:var(--card,#fff);color:var(--text,var(--ink,#2c2c2a));text-decoration:none;font-size:14px}
+.daynav a.nx{text-align:right}
+.daynav a small{display:block;color:var(--muted,#6b6a65);font-size:12px}
+.pagehead .kicker{font-size:13px;color:var(--muted,#6b6a65);font-weight:600;letter-spacing:.04em;margin-top:6px}
+img,iframe,table{max-width:100%}
+a.nav{padding:5px 12px}
+@media (max-width:600px){
+ .wrap{padding:12px}
+ h1{font-size:20px!important;line-height:1.35}
+ .gmap,#map{height:300px!important}
+ .place{flex-wrap:wrap;row-gap:2px;padding:10px 12px}
+ .place .n{flex:1 1 calc(100% - 40px);min-width:0}
+ .place .tm{margin-left:34px!important;white-space:normal;font-size:12px}
+ .place .go{margin-left:auto}
+ .leg{margin-left:10px;padding-left:14px}
+ .pill{white-space:normal}
+ .card,.note,.box{padding:12px}
+ .grid{grid-template-columns:1fr!important}
+ table.cp td:first-child{white-space:normal}
+}
+</style>
+</head>
+<body>
+<nav class="daytabs" aria-label="行程頁籤"><div class="dt-in"><a href="index.html">總覽<small>首頁</small></a><a href="d1.html" class="on">D1<small>10/13（二）</small></a><a href="d2.html">D2<small>10/14（三）</small></a><a href="d3.html">D3<small>10/15（四）</small></a><a href="d4.html">D4<small>10/16（五）</small></a><a href="d5.html">D5<small>10/17（六）</small></a><a href="d6.html">D6<small>10/18（日）</small></a></div></nav><script>(function(){var a=document.querySelector('.daytabs a.on');if(a&&a.scrollIntoView){a.scrollIntoView({inline:'center',block:'nearest'});window.scrollTo(0,0);}})();</script>
+<div class="wrap">
+  <header class="pagehead"><div class="kicker">福岡旅遊 2026 ・ DAY 1</div><h1>D1｜10/13（二）博多・天神 市區購物</h1></header>
+  <p class="sub">博多・天神・薬院｜住宿：東急ステイ博多｜卡片可開 Google 地圖或從住宿步行導航；按「地圖上看」會在上方地圖顯示該店</p>
+
+  <iframe id="map" class="gmap" style="height:420px" src="https://maps.google.com/maps?q=33.5885%2C130.408&z=14&hl=zh-TW&output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Google 地圖"></iframe>
+<div class="mapbar"><a class="mapbtn" id="openmap" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=33.5885,130.408">在 Google 地圖 App 開啟 ›</a><span>地圖可用兩指縮放；每段交通的「▶ Google 地圖導航」會直接開 Google 地圖 App 規劃路線。</span></div>
+
+  <div class="box">
+    <h2>建議動線（一天走得完）</h2>
+    <ol class="route">
+      <li><b>上午｜博多站</b>：ヨドバシ博多（陀螺）→ アミュプラザ博多（Hands、ポケモンセンター）→ KITTE／マルイ</li>
+      <li><b>中午｜地下鐵到天神</b>（博多→天神 約 5 分）：ミーナ天神（UNIQLO・GU・LOFT）→ 福岡PARCO（FREAK'S STORE、BEAMS、Onitsuka Tiger）</li>
+      <li><b>下午｜天神西側</b>：ビックカメラ（陀螺第二站）→ New Balance → 大名潮牌古著巷 → 今泉／警固選物 → 走到薬院雜貨區、ボンラパス</li>
+      <li><b>晚上｜回博多</b>：キャナルシティ博多（營業到 21 點左右）→ ドン・キホーテ中洲（24h）→ サニー博多住吉（24h 超市補水果吃的）</li>
+    </ol>
+    <p class="small">提醒：Beyblade X 熱門款常缺貨，Yodobashi 和 Bic 兩邊都看；免稅記得帶護照。營業時間為參考，出發前以 Google Maps 為準。</p>
+  </div>
+
+  <div class="box">
+    <h2>匯入成自己的 Google 地圖</h2>
+    <ol>
+      <li>按下方按鈕下載 <b>.kml</b> 檔</li>
+      <li>電腦打開 <b>mymaps.google.com</b> → 建立新地圖 → 「匯入」→ 選這個 kml</li>
+      <li>手機 Google Maps →「你的地圖」就能看到全部標記（已依分類分好）</li>
+    </ol>
+    <button class="btn" id="dl">下載 KML（Google 我的地圖）</button>
+  </div>
+
+  <div class="small" style="margin-top:18px">點分類可隱藏／顯示該類店家：</div><div class="chips" id="chips"></div>
+  <div id="list"></div>
+
+  <div class="box" id="unpinned"></div>
+<div class="daynav"><a href="index.html"><small>← 回首頁</small>行程總覽</a><a class="nx" href="d2.html"><small>下一天 →</small>D2｜10/14（三）能古島・百道海濱公園・福岡塔</a></div>
+</div>
+<script>
+const DATA={"hotel": {"name": "東急ステイ博多（住宿）", "lat": 33.5852505, "lng": 130.4210676}, "cats": {"brand": {"label": "品牌・潮牌服飾", "color": "#e4572e"}, "mall": {"label": "商場・百貨", "color": "#3a86ff"}, "toy": {"label": "電器・玩具（陀螺）", "color": "#8338ec"}, "donki": {"label": "唐吉訶德・深夜", "color": "#f4a100"}, "market": {"label": "超市（24h／深夜）", "color": "#2a9d8f"}, "select": {"label": "選物・雜貨散步區", "color": "#d63384"}}, "places": [{"cat": "mall", "name": "JR博多シティ・アミュプラザ博多", "q": "アミュプラザ博多", "area": "博多", "lat": 33.5898, "lng": 130.4205, "note": "博多站直結。約230間專門店，內有九州最大的 Hands（雜貨）、ポケモンセンター（8F）、屋頂庭園。", "hours": "約 10:00–20:00（店家不同）"}, {"cat": "mall", "name": "博多マルイ・KITTE博多", "q": "KITTE博多", "area": "博多", "lat": 33.5893, "lng": 130.4193, "note": "博多口出站旁。年輕品牌、雜貨、7F 有卡牌店。", "hours": "約 10:00–20:00"}, {"cat": "mall", "name": "博多阪急", "q": "博多阪急", "area": "博多", "lat": 33.5899, "lng": 130.4198, "note": "博多站百貨，B1 美食街可買伴手禮。", "hours": "約 10:00–20:00"}, {"cat": "toy", "name": "ヨドバシカメラ マルチメディア博多", "q": "ヨドバシカメラ マルチメディア博多", "area": "博多", "lat": 33.5893, "lng": 130.4229, "note": "★買陀螺首選之一。玩具樓層有 Beyblade X，另有家電、3C。筑紫口（東側）出站。", "hours": "約 9:30–22:00"}, {"cat": "toy", "name": "ポケモンセンターフクオカ", "q": "ポケモンセンターフクオカ", "area": "博多", "lat": 33.5899, "lng": 130.4207, "note": "在アミュプラザ博多 8F，寶可夢周邊。", "hours": "約 10:00–20:00"}, {"cat": "toy", "name": "#C-pla 博多駅博多口（扭蛋專門店）", "q": "C-pla 博多駅", "area": "博多", "lat": 33.5896, "lng": 130.4189, "note": "地下鐵博多站博多口構內的扭蛋店，常態 500+ 種。", "hours": "約 10:00–21:00"}, {"cat": "mall", "name": "キャナルシティ博多", "q": "キャナルシティ博多", "area": "博多・中洲", "lat": 33.5897, "lng": 130.4111, "note": "大型商場，離住宿步行約 10 分。Onitsuka Tiger（North Bldg 2F）、Hamleys 玩具、多個服飾品牌，傍晚有噴水秀。", "hours": "約 10:00–21:00"}, {"cat": "brand", "name": "Onitsuka Tiger キャナルシティ博多", "q": "オニツカタイガー キャナルシティ博多", "area": "博多・中洲", "lat": 33.5901, "lng": 130.4113, "note": "キャナルシティ North Bldg 2F。", "hours": "約 10:00–21:00"}, {"cat": "toy", "name": "ハムリーズ キャナルシティ博多", "q": "ハムリーズ キャナルシティ博多", "area": "博多・中洲", "lat": 33.5894, "lng": 130.4108, "note": "英國老牌玩具店，可順便找陀螺與桌遊。", "hours": "約 10:00–21:00"}, {"cat": "donki", "name": "ドン・キホーテ 中洲店", "q": "ドン・キホーテ 中洲店", "area": "中洲", "lat": 33.5936, "lng": 130.4063, "note": "24 小時營業。離住宿約 1 公里，晚上逛完最順路。藥妝、零食、玩具都有，可免稅。", "hours": "24 小時"}, {"cat": "market", "name": "サニー 博多住吉店", "q": "サニー 博多住吉店", "area": "博多・住吉", "lat": 33.5843, "lng": 130.4152, "note": "24 小時超市（西友體系），在こくてつ通り旁、2F 賣場。水果、熟食、便當都齊。", "hours": "24 小時"}, {"cat": "market", "name": "ミスターマックス Select 美野島店", "q": "ミスターマックス Select 美野島店", "area": "博多・美野島", "lat": 33.5806, "lng": 130.4114, "note": "24 小時折扣賣場，食品與日用品便宜。", "hours": "24 小時"}, {"cat": "market", "name": "ドラッグストアモリ 博多祇園店", "q": "ドラッグストアモリ 博多祇園店", "area": "博多・祇園", "lat": 33.5916, "lng": 130.414, "note": "藥妝店但食品飲料很便宜，離住宿近。", "hours": "9:00–24:00"}, {"cat": "market", "name": "マックスバリュ エクスプレス 博多駅南店", "q": "マックスバリュ エクスプレス 博多駅南店", "area": "博多駅南", "lat": 33.58, "lng": 130.426, "note": "超市，營業到半夜 12 點。", "hours": "9:00–24:00"}, {"cat": "mall", "name": "福岡PARCO（本館＋新館）", "q": "福岡PARCO", "area": "天神", "lat": 33.5909, "lng": 130.399, "note": "★潮牌集中地：FREAK'S STORE、BEAMS（新館1–2F）、Onitsuka Tiger、animate（會辦 Beyblade 活動）等。天神站直結。", "hours": "10:00–20:30"}, {"cat": "brand", "name": "FREAK'S STORE 福岡パルコ店", "q": "FREAK'S STORE 福岡パルコ", "area": "天神", "lat": 33.5907, "lng": 130.3992, "note": "美式休閒選物，在福岡PARCO內。", "hours": "10:00–20:30"}, {"cat": "brand", "name": "BEAMS 福岡", "q": "BEAMS 福岡 パルコ", "area": "天神", "lat": 33.5911, "lng": 130.3994, "note": "福岡PARCO 新館 1–2F，BEAMS 在福岡的旗艦店。", "hours": "10:00–20:30"}, {"cat": "brand", "name": "Onitsuka Tiger 福岡パルコ", "q": "オニツカタイガー 福岡パルコ", "area": "天神", "lat": 33.5909, "lng": 130.3988, "note": "福岡PARCO 內，有中文/韓文店員常駐。", "hours": "10:00–20:30"}, {"cat": "mall", "name": "ミーナ天神（UNIQLO・GU・LOFT）", "q": "ミーナ天神", "area": "天神", "lat": 33.5935, "lng": 130.3993, "note": "★九州最大 UNIQLO 天神店（1–2F）＋九州最大規模 GU，LOFT 雜貨也在這棟。", "hours": "10:00–20:00"}, {"cat": "brand", "name": "UNIQLO 天神店", "q": "ユニクロ 天神店 ミーナ天神", "area": "天神", "lat": 33.5937, "lng": 130.3995, "note": "ミーナ天神 1–2F，九州最大。", "hours": "10:00–20:00"}, {"cat": "brand", "name": "GU 天神店", "q": "ジーユー 天神店 ミーナ天神", "area": "天神", "lat": 33.5933, "lng": 130.3991, "note": "ミーナ天神內，九州最大規模 GU。", "hours": "10:00–20:00"}, {"cat": "brand", "name": "New Balance 福岡", "q": "ニューバランス福岡 天神", "area": "天神", "lat": 33.5902, "lng": 130.3966, "note": "天神西通り TENJIN 216 大樓，九州旗艦店，旁邊是 Levi's。", "hours": "約 11:00–20:00"}, {"cat": "mall", "name": "ONE FUKUOKA BLDG（ワンビル）", "q": "ONE FUKUOKA BLDG", "area": "天神", "lat": 33.5917, "lng": 130.4002, "note": "2025 年開幕的天神新地標商場，品牌較新，可順路看看。", "hours": "約 10:00–20:00"}, {"cat": "mall", "name": "天神地下街", "q": "天神地下街", "area": "天神", "lat": 33.5893, "lng": 130.4001, "note": "南北向地下街約 150 店，平價服飾、飾品、雜貨，下雨也好逛。", "hours": "10:00–20:00"}, {"cat": "mall", "name": "ソラリアプラザ", "q": "ソラリアプラザ", "area": "天神", "lat": 33.5883, "lng": 130.3985, "note": "西鐵福岡站旁，女裝與生活雜貨。", "hours": "11:00–20:00（假日 10:00–）"}, {"cat": "mall", "name": "岩田屋本店", "q": "岩田屋本店", "area": "天神", "lat": 33.5903, "lng": 130.3982, "note": "九州最大百貨，本館＋新館，有不少設計師品牌。", "hours": "10:00–20:00"}, {"cat": "mall", "name": "大丸 福岡天神店", "q": "大丸 福岡天神店", "area": "天神南", "lat": 33.5869, "lng": 130.4011, "note": "百貨，B2 美食。", "hours": "10:00–20:00"}, {"cat": "toy", "name": "ビックカメラ 天神1号館・2号館", "q": "ビックカメラ 天神1号館", "area": "天神", "lat": 33.5885, "lng": 130.3967, "note": "★另一個陀螺首選。玩具樓層有 Beyblade X，兩館相鄰，可免稅。", "hours": "約 10:00–21:00"}, {"cat": "donki", "name": "ドン・キホーテ 福岡天神本店", "q": "ドン・キホーテ 福岡天神本店", "area": "天神・今泉", "lat": 33.5862, "lng": 130.3967, "note": "24 小時，天神逛完就近補貨。", "hours": "24 小時"}, {"cat": "select", "name": "大名・天神西通り（潮牌・古著街）", "q": "大名 福岡 古着", "area": "天神・大名", "lat": 33.5893, "lng": 130.3943, "note": "福岡的「原宿」：小巷裡有大量潮牌、古著店與選物店，天神西通り一路往西走進去。", "hours": "多為 12:00–20:00"}, {"cat": "select", "name": "無印良品 天神大名", "q": "無印良品 天神大名", "area": "天神・大名", "lat": 33.5887, "lng": 130.3936, "note": "大型店，生活雜貨齊全。", "hours": "約 10:00–21:00"}, {"cat": "select", "name": "今泉・警固 選物區", "q": "今泉 福岡 セレクトショップ", "area": "今泉・警固", "lat": 33.5852, "lng": 130.3955, "note": "天神南側的安靜街區，獨立選物店、咖啡、雜貨小店多。", "hours": "多為 11:00–20:00"}, {"cat": "select", "name": "krank & marcello", "q": "krank marcello 福岡", "area": "警固", "lat": 33.5826, "lng": 130.3922, "note": "全國有名的福岡選物名店，古著飾品＋設計品牌。週三、四公休（10/13 週二有開）。", "hours": "13:00–20:00"}, {"cat": "select", "name": "薬院・平尾 雜貨散步區", "q": "薬院 雑貨屋", "area": "薬院", "lat": 33.5822, "lng": 130.3995, "note": "薬院站一帶的生活雜貨、器皿、咖啡小店，適合慢慢晃。", "hours": "多為 11:00–19:00"}, {"cat": "market", "name": "ボンラパス 薬院六つ角店", "q": "ボンラパス 薬院六つ角店", "area": "薬院", "lat": 33.5832, "lng": 130.3983, "note": "福岡在地高質感超市，進口食材、水果漂亮。", "hours": "10:00–22:00"}], "unpinned": [{"cat": "brand", "name": "LOWRYS FARM", "q": "LOWRYS FARM 福岡", "note": "福岡市區有分店，但目前分店資訊沒辦法確認，按下去會直接在 Google Maps 列出最近分店。"}, {"cat": "brand", "name": "KBF（URBAN RESEARCH 旗下）", "q": "KBF 福岡", "note": "同上，請以 Google Maps 搜尋結果為準。"}, {"cat": "brand", "name": "emmi", "q": "emmi 福岡", "note": "多設在百貨（岩田屋／博多阪急等），請以搜尋結果為準。"}, {"cat": "toy", "name": "キデイランド（Kiddy Land）", "q": "キデイランド 福岡", "note": "福岡市區分店位置未能確認，請以搜尋結果為準；陀螺另可在 Yodobashi／Bic 買。"}]};
+const KML="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<kml xmlns=\"http://www.opengis.net/kml/2.2\"><Document><name>福岡購物地圖 10/13</name>\n<Style id=\"brand\"><IconStyle><color>ff2e57e4</color><Icon><href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>\n<Style id=\"mall\"><IconStyle><color>ffff863a</color><Icon><href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>\n<Style id=\"toy\"><IconStyle><color>ffec3883</color><Icon><href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>\n<Style id=\"donki\"><IconStyle><color>ff00a1f4</color><Icon><href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>\n<Style id=\"market\"><IconStyle><color>ff8f9d2a</color><Icon><href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>\n<Style id=\"select\"><IconStyle><color>ff8433d6</color><Icon><href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>\n<Placemark><name>東急ステイ博多（住宿）</name><Point><coordinates>130.4210676,33.5852505,0</coordinates></Point></Placemark>\n<Folder><name>品牌・潮牌服飾</name>\n<Placemark><name>Onitsuka Tiger キャナルシティ博多</name><description>博多・中洲｜キャナルシティ North Bldg 2F。｜營業：約 10:00–21:00</description><styleUrl>#brand</styleUrl><Point><coordinates>130.4113,33.5901,0</coordinates></Point></Placemark>\n<Placemark><name>FREAK&#x27;S STORE 福岡パルコ店</name><description>天神｜美式休閒選物，在福岡PARCO內。｜營業：10:00–20:30</description><styleUrl>#brand</styleUrl><Point><coordinates>130.3992,33.5907,0</coordinates></Point></Placemark>\n<Placemark><name>BEAMS 福岡</name><description>天神｜福岡PARCO 新館 1–2F，BEAMS 在福岡的旗艦店。｜營業：10:00–20:30</description><styleUrl>#brand</styleUrl><Point><coordinates>130.3994,33.5911,0</coordinates></Point></Placemark>\n<Placemark><name>Onitsuka Tiger 福岡パルコ</name><description>天神｜福岡PARCO 內，有中文/韓文店員常駐。｜營業：10:00–20:30</description><styleUrl>#brand</styleUrl><Point><coordinates>130.3988,33.5909,0</coordinates></Point></Placemark>\n<Placemark><name>UNIQLO 天神店</name><description>天神｜ミーナ天神 1–2F，九州最大。｜營業：10:00–20:00</description><styleUrl>#brand</styleUrl><Point><coordinates>130.3995,33.5937,0</coordinates></Point></Placemark>\n<Placemark><name>GU 天神店</name><description>天神｜ミーナ天神內，九州最大規模 GU。｜營業：10:00–20:00</description><styleUrl>#brand</styleUrl><Point><coordinates>130.3991,33.5933,0</coordinates></Point></Placemark>\n<Placemark><name>New Balance 福岡</name><description>天神｜天神西通り TENJIN 216 大樓，九州旗艦店，旁邊是 Levi&#x27;s。｜營業：約 11:00–20:00</description><styleUrl>#brand</styleUrl><Point><coordinates>130.3966,33.5902,0</coordinates></Point></Placemark>\n</Folder>\n<Folder><name>商場・百貨</name>\n<Placemark><name>JR博多シティ・アミュプラザ博多</name><description>博多｜博多站直結。約230間專門店，內有九州最大的 Hands（雜貨）、ポケモンセンター（8F）、屋頂庭園。｜營業：約 10:00–20:00（店家不同）</description><styleUrl>#mall</styleUrl><Point><coordinates>130.4205,33.5898,0</coordinates></Point></Placemark>\n<Placemark><name>博多マルイ・KITTE博多</name><description>博多｜博多口出站旁。年輕品牌、雜貨、7F 有卡牌店。｜營業：約 10:00–20:00</description><styleUrl>#mall</styleUrl><Point><coordinates>130.4193,33.5893,0</coordinates></Point></Placemark>\n<Placemark><name>博多阪急</name><description>博多｜博多站百貨，B1 美食街可買伴手禮。｜營業：約 10:00–20:00</description><styleUrl>#mall</styleUrl><Point><coordinates>130.4198,33.5899,0</coordinates></Point></Placemark>\n<Placemark><name>キャナルシティ博多</name><description>博多・中洲｜大型商場，離住宿步行約 10 分。Onitsuka Tiger（North Bldg 2F）、Hamleys 玩具、多個服飾品牌，傍晚有噴水秀。｜營業：約 10:00–21:00</description><styleUrl>#mall</styleUrl><Point><coordinates>130.4111,33.5897,0</coordinates></Point></Placemark>\n<Placemark><name>福岡PARCO（本館＋新館）</name><description>天神｜★潮牌集中地：FREAK&#x27;S STORE、BEAMS（新館1–2F）、Onitsuka Tiger、animate（會辦 Beyblade 活動）等。天神站直結。｜營業：10:00–20:30</description><styleUrl>#mall</styleUrl><Point><coordinates>130.399,33.5909,0</coordinates></Point></Placemark>\n<Placemark><name>ミーナ天神（UNIQLO・GU・LOFT）</name><description>天神｜★九州最大 UNIQLO 天神店（1–2F）＋九州最大規模 GU，LOFT 雜貨也在這棟。｜營業：10:00–20:00</description><styleUrl>#mall</styleUrl><Point><coordinates>130.3993,33.5935,0</coordinates></Point></Placemark>\n<Placemark><name>ONE FUKUOKA BLDG（ワンビル）</name><description>天神｜2025 年開幕的天神新地標商場，品牌較新，可順路看看。｜營業：約 10:00–20:00</description><styleUrl>#mall</styleUrl><Point><coordinates>130.4002,33.5917,0</coordinates></Point></Placemark>\n<Placemark><name>天神地下街</name><description>天神｜南北向地下街約 150 店，平價服飾、飾品、雜貨，下雨也好逛。｜營業：10:00–20:00</description><styleUrl>#mall</styleUrl><Point><coordinates>130.4001,33.5893,0</coordinates></Point></Placemark>\n<Placemark><name>ソラリアプラザ</name><description>天神｜西鐵福岡站旁，女裝與生活雜貨。｜營業：11:00–20:00（假日 10:00–）</description><styleUrl>#mall</styleUrl><Point><coordinates>130.3985,33.5883,0</coordinates></Point></Placemark>\n<Placemark><name>岩田屋本店</name><description>天神｜九州最大百貨，本館＋新館，有不少設計師品牌。｜營業：10:00–20:00</description><styleUrl>#mall</styleUrl><Point><coordinates>130.3982,33.5903,0</coordinates></Point></Placemark>\n<Placemark><name>大丸 福岡天神店</name><description>天神南｜百貨，B2 美食。｜營業：10:00–20:00</description><styleUrl>#mall</styleUrl><Point><coordinates>130.4011,33.5869,0</coordinates></Point></Placemark>\n</Folder>\n<Folder><name>電器・玩具（陀螺）</name>\n<Placemark><name>ヨドバシカメラ マルチメディア博多</name><description>博多｜★買陀螺首選之一。玩具樓層有 Beyblade X，另有家電、3C。筑紫口（東側）出站。｜營業：約 9:30–22:00</description><styleUrl>#toy</styleUrl><Point><coordinates>130.4229,33.5893,0</coordinates></Point></Placemark>\n<Placemark><name>ポケモンセンターフクオカ</name><description>博多｜在アミュプラザ博多 8F，寶可夢周邊。｜營業：約 10:00–20:00</description><styleUrl>#toy</styleUrl><Point><coordinates>130.4207,33.5899,0</coordinates></Point></Placemark>\n<Placemark><name>#C-pla 博多駅博多口（扭蛋專門店）</name><description>博多｜地下鐵博多站博多口構內的扭蛋店，常態 500+ 種。｜營業：約 10:00–21:00</description><styleUrl>#toy</styleUrl><Point><coordinates>130.4189,33.5896,0</coordinates></Point></Placemark>\n<Placemark><name>ハムリーズ キャナルシティ博多</name><description>博多・中洲｜英國老牌玩具店，可順便找陀螺與桌遊。｜營業：約 10:00–21:00</description><styleUrl>#toy</styleUrl><Point><coordinates>130.4108,33.5894,0</coordinates></Point></Placemark>\n<Placemark><name>ビックカメラ 天神1号館・2号館</name><description>天神｜★另一個陀螺首選。玩具樓層有 Beyblade X，兩館相鄰，可免稅。｜營業：約 10:00–21:00</description><styleUrl>#toy</styleUrl><Point><coordinates>130.3967,33.5885,0</coordinates></Point></Placemark>\n</Folder>\n<Folder><name>唐吉訶德・深夜</name>\n<Placemark><name>ドン・キホーテ 中洲店</name><description>中洲｜24 小時營業。離住宿約 1 公里，晚上逛完最順路。藥妝、零食、玩具都有，可免稅。｜營業：24 小時</description><styleUrl>#donki</styleUrl><Point><coordinates>130.4063,33.5936,0</coordinates></Point></Placemark>\n<Placemark><name>ドン・キホーテ 福岡天神本店</name><description>天神・今泉｜24 小時，天神逛完就近補貨。｜營業：24 小時</description><styleUrl>#donki</styleUrl><Point><coordinates>130.3967,33.5862,0</coordinates></Point></Placemark>\n</Folder>\n<Folder><name>超市（24h／深夜）</name>\n<Placemark><name>サニー 博多住吉店</name><description>博多・住吉｜24 小時超市（西友體系），在こくてつ通り旁、2F 賣場。水果、熟食、便當都齊。｜營業：24 小時</description><styleUrl>#market</styleUrl><Point><coordinates>130.4152,33.5843,0</coordinates></Point></Placemark>\n<Placemark><name>ミスターマックス Select 美野島店</name><description>博多・美野島｜24 小時折扣賣場，食品與日用品便宜。｜營業：24 小時</description><styleUrl>#market</styleUrl><Point><coordinates>130.4114,33.5806,0</coordinates></Point></Placemark>\n<Placemark><name>ドラッグストアモリ 博多祇園店</name><description>博多・祇園｜藥妝店但食品飲料很便宜，離住宿近。｜營業：9:00–24:00</description><styleUrl>#market</styleUrl><Point><coordinates>130.414,33.5916,0</coordinates></Point></Placemark>\n<Placemark><name>マックスバリュ エクスプレス 博多駅南店</name><description>博多駅南｜超市，營業到半夜 12 點。｜營業：9:00–24:00</description><styleUrl>#market</styleUrl><Point><coordinates>130.426,33.58,0</coordinates></Point></Placemark>\n<Placemark><name>ボンラパス 薬院六つ角店</name><description>薬院｜福岡在地高質感超市，進口食材、水果漂亮。｜營業：10:00–22:00</description><styleUrl>#market</styleUrl><Point><coordinates>130.3983,33.5832,0</coordinates></Point></Placemark>\n</Folder>\n<Folder><name>選物・雜貨散步區</name>\n<Placemark><name>大名・天神西通り（潮牌・古著街）</name><description>天神・大名｜福岡的「原宿」：小巷裡有大量潮牌、古著店與選物店，天神西通り一路往西走進去。｜營業：多為 12:00–20:00</description><styleUrl>#select</styleUrl><Point><coordinates>130.3943,33.5893,0</coordinates></Point></Placemark>\n<Placemark><name>無印良品 天神大名</name><description>天神・大名｜大型店，生活雜貨齊全。｜營業：約 10:00–21:00</description><styleUrl>#select</styleUrl><Point><coordinates>130.3936,33.5887,0</coordinates></Point></Placemark>\n<Placemark><name>今泉・警固 選物區</name><description>今泉・警固｜天神南側的安靜街區，獨立選物店、咖啡、雜貨小店多。｜營業：多為 11:00–20:00</description><styleUrl>#select</styleUrl><Point><coordinates>130.3955,33.5852,0</coordinates></Point></Placemark>\n<Placemark><name>krank &amp; marcello</name><description>警固｜全國有名的福岡選物名店，古著飾品＋設計品牌。週三、四公休（10/13 週二有開）。｜營業：13:00–20:00</description><styleUrl>#select</styleUrl><Point><coordinates>130.3922,33.5826,0</coordinates></Point></Placemark>\n<Placemark><name>薬院・平尾 雜貨散步區</name><description>薬院｜薬院站一帶的生活雜貨、器皿、咖啡小店，適合慢慢晃。｜營業：多為 11:00–19:00</description><styleUrl>#select</styleUrl><Point><coordinates>130.3995,33.5822,0</coordinates></Point></Placemark>\n</Folder>\n</Document></kml>";
+const H=DATA.hotel;
+const gq=q=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);
+const gd=q=>'https://www.google.com/maps/dir/?api=1&origin='+H.lat+','+H.lng+'&destination='+encodeURIComponent(q)+'&travelmode=walking';
+function dist(a,b){const R=6371,t=x=>x*Math.PI/180;const dLa=t(b.lat-a.lat),dLo=t(b.lng-a.lng);const h=Math.sin(dLa/2)**2+Math.cos(t(a.lat))*Math.cos(t(b.lat))*Math.sin(dLo/2)**2;return 2*R*Math.asin(Math.sqrt(h));}
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+DATA.places.forEach(p=>{p.km=dist(H,p);});
+const MAP=document.getElementById('map'),OPEN=document.getElementById('openmap');
+function showOnMap(q,z){MAP.src='https://maps.google.com/maps?q='+encodeURIComponent(q)+'&z='+(z||17)+'&hl=zh-TW&output=embed';OPEN.href=gq(q);}
+
+const on={};for(const cid in DATA.cats)on[cid]=true;
+const chips=document.getElementById('chips');
+for(const [cid,c] of Object.entries(DATA.cats)){
+  const n=DATA.places.filter(p=>p.cat===cid).length;
+  const b=document.createElement('button');b.className='chip';
+  b.innerHTML=`<span class="dot" style="background:${c.color}"></span>${c.label} (${n})`;
+  b.onclick=()=>{on[cid]=!on[cid];b.classList.toggle('off',!on[cid]);document.getElementById('sec-'+cid).style.display=on[cid]?'':'none';};
+  chips.appendChild(b);
+}
+
+const list=document.getElementById('list');
+for(const [cid,c] of Object.entries(DATA.cats)){
+  const sec=document.createElement('section');sec.id='sec-'+cid;
+  sec.innerHTML=`<div class="cat-title"><span class="dot" style="background:${c.color};width:14px;height:14px"></span><b>${c.label}</b></div>`;
+  const g=document.createElement('div');g.className='grid';
+  DATA.places.filter(p=>p.cat===cid).sort((a,b)=>a.km-b.km).forEach(p=>{
+    const d=document.createElement('div');d.className='item';d.style.setProperty('--c',c.color);
+    d.innerHTML=`<h3>${esc(p.name)}</h3><div class="meta">${esc(p.area)}｜距住宿 ${p.km.toFixed(1)} km｜🕒 ${esc(p.hours)}</div><p>${esc(p.note)}</p>
+    <div class="btns"><a class="btn" target="_blank" href="${gq(p.q)}">Google Maps</a><a class="btn ghost" target="_blank" href="${gd(p.q)}">從住宿步行</a><button class="btn ghost" data-q="${esc(p.q)}">地圖上看</button></div>`;
+    g.appendChild(d);
+  });
+  sec.appendChild(g);list.appendChild(sec);
+}
+list.addEventListener('click',e=>{const q=e.target.dataset&&e.target.dataset.q;if(!q)return;showOnMap(q,17);MAP.scrollIntoView({behavior:'smooth',block:'center'});});
+
+const up=document.getElementById('unpinned');
+up.innerHTML='<h2>位置待確認（按下去用 Google Maps 找最近分店）</h2>'+DATA.unpinned.map(p=>`<div style="margin:8px 0"><b>${esc(p.name)}</b>　<a class="btn" target="_blank" href="${gq(p.q)}">搜尋分店</a><div class="small">${esc(p.note)}</div></div>`).join('');
+
+document.getElementById('dl').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([KML],{type:'application/vnd.google-earth.kml+xml'}));a.download='fukuoka_shopping_1013.kml';a.click();};
+</script>
+</body>
+</html>
